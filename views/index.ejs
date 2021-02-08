@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>중고물품 거래</title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+		<script src="/javascripts/jsfunc.js"></script>
+	</head>
+	<body>
+		<br><br><br>
+
+		<div id="main">
+			<div class="inner">
+				<div class="row gtr-200">
+					<div class="col-6">
+						<h2>Identity </h2>
+						<form method="get" action="enrollAdmin">
+							<button type="submit" class="primary" onclick="">enroll admin</button>
+						</form>
+						<h4>Name  :  <a id="name"><%= name %></a></h4>
+						<form method="post" action="registerUser">
+							<h4>change user</h4>
+							<input type="text" name="user" id="user" value="" placeholder="Enter user name" /><br>
+							<button type="submit" class="primary" onclick="">change user</button>
+						</form>
+						<h4 id="mybalance">Balances : </h4>
+						<h4>earn 100Toekn</h4>
+						<button type="submit" class="primary" onclick="earnToken()">earn 100Toekn</button>
+					</div>
+				</div>
+				<hr class="major">
+
+				<div class="row gtr-200">
+					<div class ="col-6 col-12-medium">
+						<h2>Register My Item</h2>
+                        <div class="row gtr-uniform">
+                            <div class="col-6 col-12-xsmall">
+                                <h4>name</h4>
+                                <input type="text" name="brand" id="brand" value="" placeholder="brand" /><br>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <ul class="actions">
+                                <li><button class="primary" onclick="registerItem()" />register</li>
+                                <li><input type="reset" value="reset" /></li>
+                            </ul>
+                        </div>
+					</div>
+
+					<div class ="col-6 col-12-medium">
+						<h2>My Items</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Owner</th>
+									<th>Name</th>
+								</tr>
+							</thead>
+							<tbody id="myItems">
+							</tbody>
+						</table>
+					</div>
+
+					<div class ="col-6 col-12-medium">
+						<h2>Sell My Item</h2>
+						<div class="row gtr-uniform">
+							<div class="col-12">
+								<select name="demo-category" id="myItems-category">
+								</select>
+							</div>
+							<div class="col-12">
+								<input type="text" name="price" id="price" value="" placeholder="Price" /><br>
+								<ul class="actions">
+									<li><input type="submit" value="Sell" class="primary" onclick="sellMyItem()" /></li>
+									<li><input type="reset" value="reset" /></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+
+					<div class ="col-6 col-12-medium">
+						<h2>Buy Users Item</h2>
+						<div class="row gtr-uniform">
+							<div class="col-12">
+								<select name="demo-category" id="sale-category">
+								</select>
+							</div>
+							<div class="col-12">
+								<ul class="actions">
+									<li><input type="submit" value="Buy" class="primary" onclick="buyUserItem()"/></li>
+									<li><input type="reset" value="Reset" /></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<hr class="major">
+
+				<div class="row gtr-200">
+					<div class ="col-6 col-12-medium">
+						<h3>registered Items</h3>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Owner</th>
+										<th>Name</th>
+									</tr>
+								</thead>
+								<tbody id="registeredItems">
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<div class ="col-6 col-12-medium">
+						<h3>Items on sale</h3>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Owner</th>
+										<th>Name</th>
+										<th>Price</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody id="ItemOnSale">
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
